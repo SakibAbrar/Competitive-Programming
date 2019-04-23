@@ -24,7 +24,8 @@ int main(){
     int ans = sum;
 
     possible[0] = true;
-
+    
+    // this dp should ensure that the rocks are used only once
     for(int idx = 0; idx<n; idx++){
         for(int wt = sum;  wt>=1; wt--){
 

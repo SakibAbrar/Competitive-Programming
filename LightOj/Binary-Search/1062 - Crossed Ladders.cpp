@@ -15,7 +15,8 @@ double binary_search(){
         
         ansH = ( sqrt(x*x-b*b) * sqrt(y*y-b*b) )/( sqrt(x*x-b*b) + sqrt(y*y-b*b) );
         // hx * hy/(hx + hy)
-
+        /// proved that with a little geometry
+        
         if( ansH < c)
             hi = mid;
         else 

@@ -8,13 +8,13 @@ double binary_search(){
     low = 0.0;
     hi = min(x, y);
 
-    for(int i = 0; i<200; i++){
+    for(int i = 0; i<64; i++){
 
         mid = (low + hi)/2.0;
         b = mid; 
         
         ansH = ( sqrt(x*x-b*b) * sqrt(y*y-b*b) )/( sqrt(x*x-b*b) + sqrt(y*y-b*b) );
-        // xy/(x+y)
+        // hx * hy/(hx + hy)
 
         if( ansH < c)
             hi = mid;

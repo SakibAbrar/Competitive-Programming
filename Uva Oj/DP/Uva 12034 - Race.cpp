@@ -7,6 +7,8 @@ int mod = 10056;
 int dp[1005];
 int binom[1005][1005];
 
+
+// memoizing the binomial coficients till 1000C1000
 void binomial() {
 
     for (int n = 1; n <= 1002; n ++) {
@@ -34,6 +36,8 @@ int solve(int horses) {
     // reccurence
     int ret = 0;
     for (int first = 1; first <= horses; first ++) {
+        /// first amount of horses gets first and rest becomes second
+        /// for the rest of the horses we can repeat the process
         ret += ( binom[horses][first] * solve(horses - first) ) % mod;
         ret %= mod;
     }
@@ -43,7 +47,7 @@ int solve(int horses) {
 
 
 int main() {
-    freopen("output.txt", "w", stdout);
+    // freopen("output.txt", "w", stdout);
     scanf("%d", &T);
 
     binomial();

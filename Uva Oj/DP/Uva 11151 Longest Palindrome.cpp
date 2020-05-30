@@ -18,7 +18,7 @@ using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statisti
 #define pii pair<int, int>
 
 int T;
-string str;
+char str[1005];
 int dp[1005][1005];
 
 // longest palindromic subsequence
@@ -34,29 +34,34 @@ int solve(int l, int r) {
         else 
             return 1;
 
-    // memo
+    // dp
     if (dp[l][r] != -1)
         return dp[l][r];
     
     // recursion
     if (str[l] == str[r]) 
-        return 2 + solve(l + 1, r - 1);
+        return dp[l][r] = 2 + solve(l + 1, r - 1);
     else
-        return max(solve(l+1, r), solve(l, r - 1));
+        return dp[l][r] = max(solve(l + 1, r), solve(l, r - 1));
         // exclude left or exclude right
 
 }
 
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+	scanf("%d", &T);
+	getc(stdin);
 
-    cin >> T;
-    while(T--){
-        memset(dp, -1, sizeof(dp));
-        cin >> str;
-        cout << solve(0, str.size() - 1) << endl;
-    }
-    return 0;
-}
+	while (T--) {
+		gets(str);
+
+		if (strlen(str) == 0) {
+			printf("0\n");
+			continue;
+		}
+
+		memset(dp, -1, sizeof(dp));
+		int ans = solve(0, strlen(str) - 1);
+
+		printf("%d\n", ans);
+	}

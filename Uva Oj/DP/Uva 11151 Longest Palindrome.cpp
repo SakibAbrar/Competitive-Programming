@@ -49,20 +49,23 @@ int solve(int l, int r) {
 
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    
 	cin >> T;
 	getc(stdin);
 
 	while (T--) {
         getline(cin, str);
 		if (str.size() == 0) {
-			printf("0\n");
+            cout << 0 << endl;
 			continue;
 		}
 
 		memset(dp, -1, sizeof(dp));
 		int ans = solve(0, str.size() - 1);
 
-		printf("%d\n", ans);
+        cout << ans << endl;
 	}
 
     return 0;
